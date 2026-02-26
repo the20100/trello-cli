@@ -174,6 +174,18 @@ trello search "project" --limit 5         # Limit results per type
 
 ---
 
+### `update` — Self-update
+
+Pull the latest source from GitHub, rebuild, and replace the current binary.
+
+```bash
+trello update
+```
+
+Requires `git` and `go` to be installed.
+
+---
+
 ## JSON output & piping
 
 When stdout is not a TTY (i.e. piped to another command), output is automatically JSON. You can also force it with `--json` or `--pretty`.
@@ -219,7 +231,8 @@ trello-cli/
 │   ├── members.go       # members subcommands
 │   ├── checklists.go    # checklists subcommands
 │   ├── search.go        # search command
-│   └── helpers.go       # shared helpers (buildParams, printAPICardsTable)
+│   ├── helpers.go       # shared helpers (buildParams, printAPICardsTable)
+│   └── update.go        # self-update
 └── internal/
     ├── api/
     │   ├── client.go    # HTTP client + all API methods
