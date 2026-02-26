@@ -5,7 +5,7 @@ import (
 	"net/url"
 
 	"github.com/spf13/cobra"
-	"github.com/vincentmaurin/trello-cli/internal/output"
+	"github.com/the20100/trello-cli/internal/output"
 )
 
 var cardsCmd = &cobra.Command{

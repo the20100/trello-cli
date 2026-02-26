@@ -1,6 +1,6 @@
 package main
 
-import "github.com/vincentmaurin/trello-cli/cmd"
+import "github.com/the20100/trello-cli/cmd"
 
 func main() {
 	cmd.Execute()

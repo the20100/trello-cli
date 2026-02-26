@@ -1,4 +1,4 @@
-module github.com/vincentmaurin/trello-cli
+module github.com/the20100/trello-cli
 
 go 1.22
 

@@ -9,7 +9,7 @@ Manage boards, lists, cards, members, checklists, and labels directly from your 
 ## Installation
 
 ```bash
-git clone https://github.com/vincentmaurin/trello-cli
+git clone https://github.com/the20100/trello-cli
 cd trello-cli
 go build -o trello .
 mv trello /usr/local/bin/

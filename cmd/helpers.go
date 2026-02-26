@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/vincentmaurin/trello-cli/internal/api"
-	"github.com/vincentmaurin/trello-cli/internal/output"
+	"github.com/the20100/trello-cli/internal/api"
+	"github.com/the20100/trello-cli/internal/output"
 )
 
 // buildParams creates a url.Values from alternating key/value strings,
