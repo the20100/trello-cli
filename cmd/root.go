@@ -128,11 +128,26 @@ func maskOrEmpty(v string) string {
 	return v[:4] + "..." + v[len(v)-4:]
 }
 
+// resolveEnv returns the value of the first non-empty environment variable from the given names.
+func resolveEnv(names ...string) string {
+	for _, name := range names {
+		if v := os.Getenv(name); v != "" {
+			return v
+		}
+	}
+	return ""
+}
+
 // resolveCredentials returns the best available API key and token.
 func resolveCredentials() (string, string, error) {
-	// 1. Env vars
-	envKey := os.Getenv("TRELLO_API_KEY")
-	envToken := os.Getenv("TRELLO_API_TOKEN")
+	// 1. Env vars (try all aliases)
+	envKey := resolveEnv(
+		"TRELLO_API_KEY", "TRELLO_KEY", "TRELLO_API", "API_KEY_TRELLO", "API_TRELLO", "TRELLO_PK", "TRELLO_PUBLIC",
+	)
+	envToken := resolveEnv(
+		"TRELLO_API_TOKEN", "TRELLO_TOKEN", "TRELLO_API_SECRET", "TRELLO_SECRET_KEY", "TRELLO_API_SECRET_KEY",
+		"TRELLO_SECRET", "SECRET_TRELLO", "API_SECRET_TRELLO", "SK_TRELLO", "TRELLO_SK",
+	)
 	if envKey != "" && envToken != "" {
 		return envKey, envToken, nil
 	}
